@@ -16,15 +16,9 @@ function App() {
     if (number) str += num;
     if (schar) str += char;
 
-    console.log("start")
     for (let i = 0; i < length; i++) {
-      let index = Math.floor(Math.random() * str.length + 1);
-
-      console.log(`${index}`)
-      console.log("str:", str.charAt(index, 1))
+      let index = Math.floor(Math.random() * str.length);
       pass += str.charAt(index, 1);
-
-      console.log("pass:", pass)
     }
 
     setPassword(pass)
