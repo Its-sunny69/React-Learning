@@ -43,7 +43,7 @@ function App() {
             selectCurrency={from}
             onAmountChange={(amount) => { setAmount(amount) }} />
           
-            <button className=' bg-black text-white w-fit py-2 px-3 rounded-md z-20 absolute shadow-lg hover:bg-gray-700'
+            <button className=' bg-black text-white w-fit py-2 px-3 rounded-md z-20 absolute shadow-lg active:bg-gray-700'
             style={{top: "35%"}}
               onClick={swap}
               type='button'> swap </button>
@@ -57,7 +57,7 @@ function App() {
             selectCurrency={to}
             amountDisable />
 
-          <button className=' bg-black w-fit py-2 px-3 text-white rounded-md shadow-lg hover:bg-gray-700' 
+          <button className=' bg-black w-fit py-2 px-3 text-white rounded-md shadow-lg active:bg-gray-700' 
             type='submit'
           > Convert {from.toUpperCase()} to {to.toUpperCase()} </button>
         </form>
