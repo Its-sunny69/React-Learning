@@ -4,11 +4,10 @@ import { Button, Input, Select, RTE } from "../index"
 import appwriteservice from "../../appwrite/config"
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { clearAllListeners } from "@reduxjs/toolkit";
 
 function PostForm({ post }) {
     const navigate = useNavigate()
-    const select = useSelector(state => state.user.userData)
+    const userData = useSelector((state) => state.auth.userData)
 
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
         defaultValues: {
@@ -20,8 +19,8 @@ function PostForm({ post }) {
     })
 
     const submit = async (data) => {
-        if (data) {
-            const file = await data.image[0] ? appwriteservice.uploadFile(data.image[0]) : null;
+        if (post) {
+            const file = data.image[0] ? await appwriteservice.uploadFile(data.image[0]) : null;
 
             if (file) {
                 appwriteservice.deleteFile(post.featureImage)
@@ -59,7 +58,7 @@ function PostForm({ post }) {
             return value
                 .trim()
                 .toLowerCase()
-                .replace(/^[a-zA-Z\d\s]+/g, '-')
+                .replace(/[^a-zA-Z\d\s]+/g, '-')
                 .replace(/\s/g, '-')
         }
 
@@ -122,7 +121,7 @@ function PostForm({ post }) {
                     </div>
                 )}
                 <Select
-                    option={['active', 'inactive']}
+                    options={['active', 'inactive']}
                     label='Status'
                     className=""
                     {...register('status', { required: true })}

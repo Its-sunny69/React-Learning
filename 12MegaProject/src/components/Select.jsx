@@ -1,5 +1,4 @@
 import React, { useId } from 'react'
-import { forwardRef } from 'react'
 
 function Select({
     label,
@@ -19,7 +18,7 @@ function Select({
                 ref={ref}
                 className={`border border-gray-300 w-full`}
             >
-                {options.map((option) =>
+                {options?.map((option) =>
                     <option key={option} value={option}>
                         {option}
                     </option>
