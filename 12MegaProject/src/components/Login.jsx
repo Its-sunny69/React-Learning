@@ -29,7 +29,7 @@ function Login() {
     return (
         <div className='w-full'>
             <div>
-                <Logo width='100%'/>
+                <Logo width='100%' />
             </div>
             <h2>Sign in to our account</h2>
             <p>Don't have any Account?
@@ -42,26 +42,26 @@ function Login() {
             <form onClick={handleSubmit(login)}>
                 <div>
                     <Input
-                    label="Email: "
-                    type="email"
-                    placeholder="Enter your email"
-                    {...register("email"), {
-                        requried: true,
-                        validate: {
-                            matchPattern: (value) => /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(value) || "Email address must be valid address"
-                        } 
-                    }}
+                        label="Email: "
+                        type="email"
+                        placeholder="Enter your email"
+                        {...register("email", {
+                            requried: true,
+                            validate: {
+                                matchPattern: (value) => /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(value) || "Email address must be valid address"
+                            }
+                        })}
                     />
 
                     <Input
-                    label="Password: "
-                    type="password"
-                    placeholder="Enter your password"
-                    {...register("password"), {required: true, minLength: 8}}
+                        label="Password: "
+                        type="password"
+                        placeholder="Enter your password"
+                        {...register("password", { required: true, minLength: 8 })}
                     />
                     <Button
-                    type='submit'
-                    className=''>Sign in</Button>
+                        type='submit'
+                        className=''>Sign in</Button>
                 </div>
             </form>
         </div>

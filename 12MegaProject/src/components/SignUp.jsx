@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { login } from '../store/authSlice'
 import { Button, Input, Logo } from './index'
@@ -10,7 +10,7 @@ function SignUp() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const [error, setError] = useState("")
-    const {register, handleSubmit} = useForm()
+    const { register, handleSubmit } = useForm()
 
     const create = async (data) => {
         setError("")
@@ -27,10 +27,10 @@ function SignUp() {
         }
     }
 
-  return (
-    <div className='w-full'>
+    return (
+        <div className='w-full'>
             <div>
-                <Logo width='100%'/>
+                <Logo width='100%' />
             </div>
             <h2>Sign up to create account</h2>
             <p>Already have an Account?
@@ -42,37 +42,37 @@ function SignUp() {
 
             <form onClick={handleSubmit(create)}>
                 <div>
-                <Input
-                    label="Name: "
-                    type="text"
-                    placeholder="Enter your name"
-                    {...register("name"), {required: true}}
+                    <Input
+                        label="Name: "
+                        type="text"
+                        placeholder="Enter your name"
+                        {...register("name", { required: true })}
                     />
                     <Input
-                    label="Email: "
-                    type="email"
-                    placeholder="Enter your email"
-                    {...register("email"), {
-                        requried: true,
-                        validate: {
-                            matchPattern: (value) => /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(value) || "Email address must be valid address"
-                        } 
-                    }}
+                        label="Email: "
+                        type="email"
+                        placeholder="Enter your email"
+                        {...register("email", {
+                            requried: true,
+                            validate: {
+                                matchPattern: (value) => /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g.test(value) || "Email address must be valid address"
+                            }
+                        })}
                     />
 
                     <Input
-                    label="Password: "
-                    type="password"
-                    placeholder="Enter your password"
-                    {...register("password"), {required: true, minLength: 8}}
+                        label="Password: "
+                        type="password"
+                        placeholder="Enter your password"
+                        {...register("password", { required: true, minLength: 8 })}
                     />
                     <Button
-                    type='submit'
-                    className=''>Create Account</Button>
+                        type='submit'
+                        className=''>Create Account</Button>
                 </div>
             </form>
         </div>
-  )
+    )
 }
 
 export default SignUp
