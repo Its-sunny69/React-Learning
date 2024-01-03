@@ -4,9 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function Header() {
-  const authStatus = useSelector((state) => {
-    state.auth.status
-  })
+  const authStatus = useSelector((state) => state.auth.status)
 
   const navigate = useNavigate();
 
@@ -18,22 +16,22 @@ function Header() {
     },
     {
       name: "Login",
-      slug: "/Login",
+      slug: "/login",
       active: !authStatus
     },
     {
       name: "Signup",
-      slug: "/Signup",
+      slug: "/signup",
       active: !authStatus
     },
     {
       name: "All Posts",
-      slug: "/All Posts",
+      slug: "/all-posts",
       active: authStatus
     },
     {
-      name: "Add Post",
-      slug: "/Add Post",
+      name: "Add Posts",
+      slug: "/add-posts",
       active: authStatus
     },
   ]
@@ -51,7 +49,7 @@ function Header() {
           <ul className='flex ml-auto'>
             {navItem.map((item) =>
               item.active ? (
-                <li key={item.slug}>
+                <li key={item.name}>
                   <button
                     onClick={() => navigate(item.slug)}
                     className='bg-black text-white px-2'>
@@ -63,7 +61,7 @@ function Header() {
 
             {authStatus && (
               <li>
-                <logout />
+                <LogoutBtn />
               </li>
             )}
           </ul>
