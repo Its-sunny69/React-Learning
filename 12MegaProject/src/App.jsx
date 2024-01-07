@@ -23,7 +23,7 @@ function App() {
   }, [])
 
   return !loading ? (
-    <div className='h-screen bg-slate-400 content-center mx-auto'>
+    <div className='w-full h-screen bg-primary content-center mx-auto'>
       <div className=' w-full block text-center'>
         <Header />
         <main>

@@ -1,0 +1,9 @@
+.login-btn {
+    box-shadow: 3px 3px #00b4d8;
+    transition: box-shadow 0.2s;
+    background-color: #03045e;
+    color: white;
+}
+.login-btn:hover {
+    box-shadow: 1px 1px;
+}

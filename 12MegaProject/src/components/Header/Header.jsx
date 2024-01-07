@@ -2,6 +2,8 @@ import React from 'react'
 import { Container, Logo, LogoutBtn } from "../index";
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import '../../CSS/Header.css'
+import '../../CSS/LoginBtn.css'
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.status)
@@ -36,8 +38,11 @@ function Header() {
     },
   ]
 
+  const default_btn = 'nav-btn px-2 py-1 mx-2 border-2 border-tertiary rounded-sm'
+  const special_btn = 'login-btn px-2 py-1 mx-2 border-2 border-tertiary rounded-sm'
+
   return (
-    <header className='py-3 shadow bg-gray-500'>
+    <header className='py-3 shadow bg-gray-500 sticky top-0 backdrop-blur-md'>
       <Container>
         <nav className='flex'>
           <div className='mr-3'>
@@ -52,7 +57,7 @@ function Header() {
                 <li key={item.name}>
                   <button
                     onClick={() => navigate(item.slug)}
-                    className='bg-black text-white px-2'>
+                    className={`${ item.name == 'Login' || item.name == 'Signup' ? special_btn: default_btn}`}>
                     {item.name}
                   </button>
                 </li>

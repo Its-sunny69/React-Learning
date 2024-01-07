@@ -1,0 +1,7 @@
+.nav-btn {
+    box-shadow: 3px 3px #03045e;
+    transition: box-shadow 0.2s;
+}
+.nav-btn:hover {
+    box-shadow: 1px 1px;
+}

@@ -1,0 +1,23 @@
+.logo-div {
+    /* text-shadow: 6px 4px 5px #0077b6; */
+}
+
+.logo-text1 {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #03045e;
+}
+.logo-text1:hover {
+    color:  #03045e;
+    
+}
+
+.logo-text2 {
+    color:  #03045e;
+}
+
+.logo-text2:hover {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #03045e;
+}
